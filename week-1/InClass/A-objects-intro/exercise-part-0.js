@@ -7,28 +7,39 @@ Try to think of as many properties as you can!
 */
 
 let laptop = {
-    brand: "Lenovo",
-    screenSize: 13,
-    isTouchscreen: true,
-    procesador: {
-      marca: 'intel',
-      cantidadDeProcesadores: 8
-    },
-    camara: 'high vision',
-    color: 'rojo y negro',
-    memoriaRam: 8,
-    almacenamiento: ['hdd', 'ssd', 'cdrom', 'floppy', 'usb', 'microsd'],
-    puertos: ['wga', 'usb', 'hdmi', 'ethernet'],
-    so: {
-      marca: 'windows',
-      version: 'XP',
-      parche: '1.0.3'
-    },
-    encender: () => {
-      console.log('peep poop')
-    }
+  brand: "Asus",
+  screenSize: 13,
+  ram: 8,
+  isTouchscreen: false,
+  color: "grey",
+  lugarFabricacion: "ES",
+  stock: 3000,
+  almacenamiento: ['hdd', 'ssd', 'cdrom', 'floppy', 'usb', 'microsd'],
+  puertos: ['wga', 'usb', 'hdmi', 'ethernet'],
+  procesador: {
+    procesadorMarca: "intel",
+    ghz: 1.8,
+    turbo: false
+  },
+  salidas: function (cantidad) {
+    this.stock = this.stock - cantidad;
+  },
+  entradas: (cantidad) => {
+    this.stock = this.stock + cantidad;
+  } //porque asi no?
 
-  };
 
-console.log(laptop)
-laptop.encender()
+};
+laptop.salidas(100);
+console.log(laptop.stock);
+console.log(laptop.salidas(100));
+
+console.log("--------------");
+console.log(Object.keys(laptop));
+
+let arr = Object.keys(laptop);
+
+arr.forEach(elemento => {
+  console.log(laptop[elemento])
+}
+)
