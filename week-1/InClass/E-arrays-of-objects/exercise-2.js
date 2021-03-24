@@ -39,12 +39,22 @@ DO NOT EDIT ANYTHING ABOVE THIS LINE
 WRITE YOUR CODE BELOW
 */
 
+// PORQUE ME DA UNDEFINED con FOREACH?
+let destinationNamesWithin500Kms = travelDestinations.filter(desti => desti.distanceKms <= 500).map(desti => desti.destinationName);
 
-let destinationNamesWithin500Kms = // Complete here
+let destinationNameReachableByFerry = travelDestinations.filter(desti => desti.transportations.includes("ferry")).map(desti => desti.destinationName);
 
-let destinationNameReachableByFerry = // Complete here
+// let destinationNamesMoreThan300KmsAwayByTrain = travelDestinations.forEach(desti => {
 
-let destinationNamesMoreThan300KmsAwayByTrain = // Complete here (PRINT THE RESULT IN THE CONSOLE USING FOREACH)
+//     if (desti.distanceKms >= 300 && desti.transportations.includes("train")) {
+//         console.log(this.destinationName);
+//     };
+// })
+
+let destinationNamesMoreThan300KmsAwayByTrain = travelDestinations.filter(desti => {
+    return desti.distanceKms >= 300 && desti.transportations.includes("train")
+})
+    .forEach(desti => console.log(desti.destinationName))
 
 
 /*
