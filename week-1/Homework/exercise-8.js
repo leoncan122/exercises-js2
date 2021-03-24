@@ -170,3 +170,21 @@ function removeSkill(mentors, skill) {
     .forEach(mentor => console.log(mentor.skills))
 }
 removeSkill(mentors, "JS");
+
+console.log("Exercise 6");
+
+function mentorWithMoreSkills(mentors) {
+  return mentors.sort((a, b) => { return a.skills.length - b.skills.length })[0].firstName;
+}
+console.log(mentorWithMoreSkills(mentors));
+
+console.log("Exercise 7");
+
+
+mentors.forEach(mentor => {
+  mentor.addStudentLikes = function () {
+    this.studentLikes += 1;
+  }
+})
+mentors[0].addStudentLikes();
+console.log(mentors[0].studentLikes)
