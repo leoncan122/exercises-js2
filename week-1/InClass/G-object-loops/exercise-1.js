@@ -5,8 +5,21 @@
 const studentGrades = {
     tom: 20,
     george: 17,
-    abdul: 19,
+    abdul: 19
   };
+
+// let values = Object.values(studentGrades);
+// console.log(values);
+// let result = values.filter( value => {
+//   if ( value > 18) {
+//     return value;
+//   }
+// })
+// console.log(result)
+let values =  Object.values(studentGrades)
+let ans = values.filter( value => value > 18)
+console.log(ans)
+  
   
   // Prints
   // TOM - 20

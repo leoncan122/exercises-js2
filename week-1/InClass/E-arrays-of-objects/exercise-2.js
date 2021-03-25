@@ -54,7 +54,7 @@ let destinationNameReachableByFerry = travelDestinations.filter(desti => desti.t
 let destinationNamesMoreThan300KmsAwayByTrain = travelDestinations.filter(desti => {
     return desti.distanceKms >= 300 && desti.transportations.includes("train")
 })
-    .forEach(desti => console.log(desti.destinationName))
+    .map(desti => desti.destinationName)
 
 
 /*
