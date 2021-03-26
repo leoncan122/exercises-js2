@@ -46,7 +46,15 @@ Task 3
 
 Write JavaScript below that changes the background colour of the page when the 'Change colour' button is clicked.
 */
+function changeBackground (event) {
+    event.preventDefault();
+    const backgroundColor = document.querySelector("body")
+    
+}
 
+const colorBtn = document.getElementById('bgrChangeBtn')
+
+colorBtn.addEventListener('click', changeBackground)
 
 /*
 Task 4
@@ -54,8 +62,22 @@ Task 4
 
 When a user clicks the ‘Add some text’ button, a new paragraph should be added inside the section that says “LEARN MORE”
 */
+function addP (event, texto) {
 
+    event.preventDefault();
 
+    const conteiner = document.querySelector("#mainArticles")
+    const paragraph = document.createElement("p")
+    texto = document.querySelector(".form-control")
+    conteiner.appendChild(paragraph)
+    paragraph.innerText = texto.value
+    texto.value = ""
+
+}
+
+const addText = document.querySelector("#addTextBtn")
+
+addText.addEventListener('click', addP)
 
 /*
 Task 5
@@ -63,6 +85,20 @@ Task 5
 
 When the 'Larger links!' button is clicked, the text of all links on the page should increase.
 */
+function largerLinks (event) {
+    event.preventDefault();
+    let links = document.querySelectorAll('a');
+    links.forEach(elem => {
+        let fontSize = Number.parseInt(elem.style.fontSize)
+        fontSize += 1
+        elem.style.fontSize = fontSize + 'em'
+    })
+}
+
+const largerLinksBtn = document.querySelector("#largerLinksBtn")
+
+largerLinksBtn.addEventListener('click', largerLinks)
+
 
 
 /*
@@ -73,7 +109,9 @@ Using the same function in Task 4,
 When the 'Add' button is clicked, get the text inside the input field and create a new paragraph in the "LEARN MORE" section
 Also clear the text inside the input field
 */
+const addBtn = document.querySelector('#addArticleBtn')
 
+addBtn.addEventListener('click', addP)
 /*
 Task 7
 ======
