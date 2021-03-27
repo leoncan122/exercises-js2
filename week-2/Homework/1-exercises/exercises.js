@@ -14,15 +14,20 @@
  * </div>
  */
 function exerciseOne(arrayOfPeople) {
+
   let content = document.querySelector("#content");
-  const h1 = document.createElement("h1");
-  const h2 = document.createElement("h2");
-  content.appendChild(h1)
-  content.appendChild(h2)
   
-  h1.innerText = arrayOfPeople.title
-  h2.innerText = arrayOfPeople.job
+  arrayOfPeople.map((people) => {
+    const h1 = document.createElement("h1");
+    const h2 = document.createElement("h2");
+    content.appendChild(h1)
+    content.appendChild(h2)
+    h1.innerText = people.name
+    h2.innerText = people.job
+  })
+
 }
+
 
 /**
  *
@@ -32,7 +37,18 @@ function exerciseOne(arrayOfPeople) {
  *
  */
 function exerciseTwo(shopping) {
-  //Write your code in here
+  const container = document.querySelector('#content')
+  const listaUl = document.createElement('ul')
+  listaUl.innerText = 'Lista Supermercado'
+  listaUl.style.fontStyle = "italic"
+  container.appendChild(listaUl)
+  
+
+  shopping.forEach(prod => {
+    let items = document.createElement('li')
+    listaUl.appendChild(items)
+    items.innerText = prod
+  })
 }
 
 /**
@@ -65,7 +81,46 @@ function exerciseTwo(shopping) {
     The end result should look something like this: https://hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 **/
 function exerciseThree(books) {
-  //Write your code in here
+  const h1 = document.createElement("h1")
+  let container = document.getElementById("content")
+  let ul = document.createElement("ul")
+
+  container.appendChild(h1)
+  container.appendChild(ul)
+  
+  h1.textContent = 'Books list'
+  ul.style.display = "flex" 
+
+  const img1 = "https://images.squarespace-cdn.com/content/v1/58f3d400725e25b08cdcb9df/1566397801087-Q4PLIK7PKNITKZZD65P9/ke17ZwdGBToddI8pDm48kJEPCC8nQiv_RAubk74wwq0UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8PaoYXhp6HxIwZIk7-Mi3Tsic-L2IOPH3Dwrhl-Ne3Z2a4ZGrNreUw59RLnQGbjShGqiR0LKKvF0PhpRYHaAfccKMshLAGzx4R3EDFOm1kBS/design-everyday-things.png"
+  const img2 = "https://images-na.ssl-images-amazon.com/images/I/71HMyqG6MRL.jpg"
+  const img3 = "https://m.media-amazon.com/images/I/41uPjEenkFL._SX260_.jpg"
+
+  const imagesBooks = [img1, img2, img3]
+  
+  
+  books.forEach( (book, i) => {
+    let p = document.createElement("p")
+    let li= document.createElement("li")
+    let img = document.createElement("img")
+    
+    ul.appendChild(li)
+    li.appendChild(p)
+    li.appendChild(img)
+
+    p.innerText = book.title
+    img.src = imagesBooks[i]
+    //li.style.backgroundColor = book.alreadyRead ? "green" : "red";
+    li.className = book.alreadyRead ? "read" ; "unread"
+
+    li.id = `id-${i}`
+    li.style.width = "350px"
+    li.style.listStyle = "none"
+    li.style.margin = "10px"
+    li.style.padding = "5px"
+    p.style.fontWeight = "bold"
+    img.style.width = "180px"
+    
+  })
 }
 
 //

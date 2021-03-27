@@ -46,15 +46,21 @@ Task 3
 
 Write JavaScript below that changes the background colour of the page when the 'Change colour' button is clicked.
 */
-function changeBackground (event) {
+const body = document.querySelector("body")
+
+function changeBackground (event, color) {
     event.preventDefault();
-    const backgroundColor = document.querySelector("body")
+ 
+    body.style.backgroundColor = color;
     
 }
 
 const colorBtn = document.getElementById('bgrChangeBtn')
 
-colorBtn.addEventListener('click', changeBackground)
+//colorBtn.addEventListener('click', event => {
+//          changeBackground(event, 'black')
+         
+//      })
 
 /*
 Task 4
@@ -109,6 +115,7 @@ Using the same function in Task 4,
 When the 'Add' button is clicked, get the text inside the input field and create a new paragraph in the "LEARN MORE" section
 Also clear the text inside the input field
 */
+
 const addBtn = document.querySelector('#addArticleBtn')
 
 addBtn.addEventListener('click', addP)
@@ -120,4 +127,18 @@ Create an array of 5 different colors.
 Using the same function in Task 3, every time the 'Change colour' button is clicked, the background color will be changed with the next color in the array.
 The next color when you are in the last color of the array will be the first color again.
 */
+const colors = ['tomato', 'pink', 'orange', 'red', 'green', 'cyan']
 
+
+
+colorBtn.addEventListener('click', (event) => {
+    let currentColor = body.style.backgroundColor
+    let currentColorIndex = colors.indexOf(currentColor)
+    currentColorIndex++
+
+    if ( currentColorIndex === colors.length) {
+        currentColorIndex = 0
+    }
+changeBackground(event, colors[currentColorIndex])
+
+})
