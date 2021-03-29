@@ -54,23 +54,28 @@ let describeField = document.getElementById('exampleTextarea')
 function checkFields(event) {
     event.preventDefault()
     
-
     emailField.style.backgroundColor = 'white'
     nameField.style.backgroundColor = 'white'
     describeField.style.backgroundColor = 'white'
     
+    let isValid = true
 
     if (emailField.value.length == 0 || !emailField.value.includes("@")) {
-        
         emailField.style.backgroundColor = 'tomato'
+        isValid = false
     }
+
     if (nameField.value.length == 0 ) {
         nameField.style.backgroundColor = 'tomato'
+        isValid = false
     }
+
     if ( describeField.value.length == 0 ) {
         describeField.style.backgroundColor = 'tomato'
+        isValid = false
     }
-    else {
+
+    if (isValid) {
         emailField.value = ''
         nameField.value = ''
         describeField.value = ''
