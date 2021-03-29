@@ -50,36 +50,19 @@ let emailField = document.getElementById('exampleInputEmail1')
 let nameField = document.getElementById('example-text-input')
 let describeField = document.getElementById('exampleTextarea')
 
-let arr = [emailField, nameField, describeField]
-
- const isValid = arr.forEach( field => field.value = '')
-
 //funcion que cambia el color de los fields
 function checkFields(event) {
     event.preventDefault()
     
-    if(emailField.value.length == '0' && !emailField.value.includes('@')) {
-        emailField.style.backgroundColor = 'tomato'
-    } else { 
-        emailField.value = ''
-        emailField.style.backgroundColor = 'none'
-    }
-     
-    if (nameField.value.length == '0') {
-        nameField.style.backgroundColor = 'tomato'
-    } else { 
-        nameField.value = ''
-        nameField.style.backgroundColor = 'none'
-    }
-    
-    if (describeField.value.length == '0') {
-        describeField.style.backgroundColor = 'tomato'
-    } else { 
-        describeField.value = ''
-        describeField.style.backgroundColor = 'none'
-    }
-    
+    if (emailField.value.length == '0' && nameField.value.length == '0' && describeField.value.length == '0' && !emailField.value.includes("@")) {
+        
+    emailField.style.backgroundColor = 'tomato'
+    nameField.style.backgroundColor = 'tomato'
+    describeField.style.backgroundColor = 'tomato'
 }
+else {
+    alert('Thank you for filling up the form')
+}}
 
 //busqueda del boton submit 
 let submitBtn = document.querySelector('.btn.btn-primary.submit')
@@ -88,17 +71,13 @@ let submitBtn = document.querySelector('.btn.btn-primary.submit')
 submitBtn.addEventListener('click', (event) => {
     event.preventDefault()
     
-    if (emailField.value.length == '0' && nameField.value.length == '0' && describeField.value.length == '0' && !emailField.value.includes("@")) {
-        checkFields(event)
-        
-    } else { 
-        emailField.value = ''
-        nameField.value = ''
-        describeField.value = ''
+         emailField.value = ''
+         nameField.value = ''
+         describeField.value = ''
 
-        emailField.style.backgroundColor = 'none'
-        nameField.style.backgroundColor = 'none'
-        describeField.style.backgroundColor = 'none'
+         emailField.style.backgroundColor = 'none'
+         nameField.style.backgroundColor = 'none'
+         describeField.style.backgroundColor = 'none'
 
-        alert('Thank you for filling up the form')}
-})
+         alert('Thank you for filling up the form')}
+)
