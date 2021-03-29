@@ -54,30 +54,25 @@ let describeField = document.getElementById('exampleTextarea')
 function checkFields(event) {
     event.preventDefault()
     
-    if (emailField.value.length == '0' && nameField.value.length == '0' && describeField.value.length == '0' && !emailField.value.includes("@")) {
+    if (emailField.value.length == '0' || nameField.value.length == '0' || describeField.value.length == '0' || !emailField.value.includes("@")) {
         
     emailField.style.backgroundColor = 'tomato'
     nameField.style.backgroundColor = 'tomato'
     describeField.style.backgroundColor = 'tomato'
 }
-else {
-    alert('Thank you for filling up the form')
+    else {
+        emailField.value = ''
+        nameField.value = ''
+         describeField.value = ''
+
+         emailField.style.backgroundColor = 'none'
+         nameField.style.backgroundColor = 'none'
+        describeField.style.backgroundColor = 'none'
+        alert('Thank you for filling up the form')
 }}
 
 //busqueda del boton submit 
 let submitBtn = document.querySelector('.btn.btn-primary.submit')
 
 //al boton submit addEvenlistener que llama la funcion 
-submitBtn.addEventListener('click', (event) => {
-    event.preventDefault()
-    
-         emailField.value = ''
-         nameField.value = ''
-         describeField.value = ''
-
-         emailField.style.backgroundColor = 'none'
-         nameField.style.backgroundColor = 'none'
-         describeField.style.backgroundColor = 'none'
-
-         alert('Thank you for filling up the form')}
-)
+submitBtn.addEventListener('click', checkFields)
