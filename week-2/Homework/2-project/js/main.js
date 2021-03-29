@@ -54,24 +54,28 @@ let describeField = document.getElementById('exampleTextarea')
 function checkFields(event) {
     event.preventDefault()
     
-    if (emailField.value.length > 0 || nameField.value.length > 0 || describeField.value.length >0 || emailField.value.includes("@")) {
+
+    emailField.style.backgroundColor = 'white'
+    nameField.style.backgroundColor = 'white'
+    describeField.style.backgroundColor = 'white'
+    
+
+    if (emailField.value.length == 0 || !emailField.value.includes("@")) {
         
+        emailField.style.backgroundColor = 'tomato'
+    }
+    if (nameField.value.length == 0 ) {
+        nameField.style.backgroundColor = 'tomato'
+    }
+    if ( describeField.value.length == 0 ) {
+        describeField.style.backgroundColor = 'tomato'
+    }
+    else {
         emailField.value = ''
         nameField.value = ''
         describeField.value = ''
-
-        emailField.style.backgroundColor = 'white'
-        nameField.style.backgroundColor = 'white'
-        describeField.style.backgroundColor = 'white'
         alert('Thank you for filling up the form')
-   
-}
-    else {
-        emailField.style.backgroundColor = 'tomato'
-        nameField.style.backgroundColor = 'tomato'
-        describeField.style.backgroundColor = 'tomato'
 
-       
 }}
 
 //busqueda del boton submit 
