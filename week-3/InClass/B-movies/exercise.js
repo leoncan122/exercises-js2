@@ -10,7 +10,7 @@ Create a function called "showMovies" that
 
 Task 2
 Amend your function above to only show movies after 1 second. Remember to use setTimeout to achieve that
-Create a new function called "addMovie"
+Crnction called "addMovie"
 - it receives a movie object as an argument - your can create a new object for your favorite movie following using the "myMovies" objects as a guide 
 - it adds the new movie to the list of movies after 2 seconds. Remember to setTimeout to achieve that
 Call addMovies to add the new movie to the list and then showMovies to see the movies added on the screen.
@@ -56,12 +56,48 @@ var movies = [
     type: "horror",
     haveWatched: false,
   },
+  
 ];
 
 // create showMovies function
+function showMovies(movies) {
+  let allMovies = document.getElementById('all-movies');
+  let moviesNumber = document.querySelector('#movies-number');
+  
+  allMovies.appendChild(moviesNumber);
+  allMovies.innerText = ''
+  moviesNumber.innerText = movies.length; 
 
+  setTimeout(() => {
+    movies.forEach( movie => {
+      let paragraph = document.createElement('p');
+      let descripcion  = `Titulo: ${movie.title} - Director: ${movie.director}`;
+      
+      allMovies.appendChild(paragraph);
+      paragraph.innerText = descripcion; 
+      
+    })
+  }, 4000)
+  
+  
+}
 
-// create a new movie object for your favorite movie
-
-
+// create a new movie
+let newMovie = {
+  title: "Kill Bill",
+  director: "Quentin Tarantino",
+  type: "ficcion",
+  haveWatched: true
+};
 // create addMovies function
+
+function addMovies(movie) {
+  
+   setTimeout(() => {
+    movies.push(movie)
+   }, 2000)
+    
+}
+addMovies(newMovie)
+showMovies(movies)
+
