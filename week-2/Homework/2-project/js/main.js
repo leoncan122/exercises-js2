@@ -90,5 +90,4 @@ let submitBtn = document.querySelector('.btn.btn-primary.submit')
 submitBtn.addEventListener('click', (event) => {
     event.preventDefault
     checkFields(event)
-    
 })

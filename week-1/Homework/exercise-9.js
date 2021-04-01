@@ -90,14 +90,27 @@ function removeFromShoppingCart(id) {
 }
 
 function shop() {
+  
 
-  if (shoppingCart.totalPrice != 0 || shoppingCart.selectedProducts.length > 0) {
-
+   if (shoppingCart.totalPrice != 0 || shoppingCart.selectedProducts.length > 0) {
+    
+    let reset = shoppingCart.selectedProducts.map( prod => {
+      prod.stock -= 1 
+    })  
+      
     shoppingCart.totalPrice = 0;
+  
+      shoppingCart.selectedProducts = [];
 
-    shoppingCart.selectedProducts = [];
+    return reset
+
+    }// no pude, substraer una unidad del stockl
   }
-}
+
+
+  
+
+ 
 
 //results
 addToShoppingCart(1);
@@ -125,6 +138,7 @@ console.log("Step 5");
 console.log("Total Price = " + shoppingCart.totalPrice);
 console.log("Number of Elements = " + shoppingCart.selectedProducts.length);
 console.log("Name of Elements = " + shoppingCart.selectedProducts.map(p => p.name));
+console.log(product4.stock)
 
 
 

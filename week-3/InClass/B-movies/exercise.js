@@ -96,8 +96,34 @@ function addMovies(movie) {
    setTimeout(() => {
     movies.push(movie)
    }, 2000)
-    
+   showMovies(movies)
 }
 addMovies(newMovie)
-showMovies(movies)
+
+
+let submitBtn = document.querySelector('#submit')
+
+// const title = document.querySelector('#title')
+// const director = document.querySelector('#director')
+// const type = document.querySelector('#type')
+// const haveWatched = document.querySelector('#director')
+
+submitBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  const titleField = document.querySelector('#title')
+  const directorField = document.querySelector('#director')
+  const typeField = document.querySelector('#type')
+  const haveWatchedField = document.querySelector('#director')
+  
+  let newTitle = {
+    title: titleField.value,
+    director: directorField.value,
+    type: typeField.value,
+    haveWatched: haveWatchedField.value
+ }
+
+ addMovies(newTitle)
+})
+  
 
