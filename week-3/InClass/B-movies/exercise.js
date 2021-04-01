@@ -63,9 +63,12 @@ var movies = [
 function showMovies(movies) {
   let allMovies = document.getElementById('all-movies');
   let moviesNumber = document.querySelector('#movies-number');
-  
+
+  document.querySelectorAll(`#all-movies p:not(.alert)`).forEach(
+    element => element.remove()
+  )
   allMovies.appendChild(moviesNumber);
-  allMovies.innerText = ''
+  
   moviesNumber.innerText = movies.length; 
 
   setTimeout(() => {
@@ -78,7 +81,7 @@ function showMovies(movies) {
       
     })
   }, 4000)
-  
+
   
 }
 

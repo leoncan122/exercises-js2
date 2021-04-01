@@ -10,3 +10,26 @@ user latitude and longitude.
 
 ================
 */
+//1. Hecho!
+//2. Hecho!
+let save = document.querySelector('#save');
+let lat = document.querySelector('#lat');
+let long = document.querySelector('#long');
+
+let url = `https://fcc-weather-api.glitch.me/api/current?lat=${lat}&lon=${long}`;
+
+//3. Hecho!
+save.addEventListener('click', (event) => {
+    event.preventDefault();
+    const body = document.querySelector('body');
+    
+    fetch (url)
+
+    .then((response) => response.json())
+    .then(data => {
+        const h3 = document.createElement('h3');
+        body.appendChild(h3);
+        h3.innerText = 'el data.main.temp no me funciona'
+    })
+
+})
