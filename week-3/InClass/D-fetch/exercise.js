@@ -16,7 +16,7 @@ let save = document.querySelector('#save');
 let lat = document.querySelector('#lat');
 let long = document.querySelector('#long');
 
-let url = `https://fcc-weather-api.glitch.me/api/current?lat=${lat}&lon=${long}`;
+let url = `https://fcc-weather-api.glitch.me/api/current?lat=${lat.value}&lon=${long.value}`;
 
 //3. Hecho!
 save.addEventListener('click', (event) => {
@@ -26,10 +26,20 @@ save.addEventListener('click', (event) => {
     fetch (url)
 
     .then((response) => response.json())
+    //4. Hecho!
     .then(data => {
         const h3 = document.createElement('h3');
         body.appendChild(h3);
-        h3.innerText = 'el data.main.temp no me funciona'
+    //5. Hecho!
+        if (lat.value.length == 0 && long.value.length == 0) {
+            h3.innerText = 'complete el formulario'
+        }
+        if (typeof lat.value != 'number' && typeof long.value != 'number') {
+            h3.innerText = 'Los valores deben ser numericos, gracias :)'
+        }
+        else {
+        setTimeout(() => {h3.innerText = data.main.temp}, 2000)
+        }
     })
 
 })
