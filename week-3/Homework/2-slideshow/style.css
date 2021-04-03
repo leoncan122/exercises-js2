@@ -1,1 +1,13 @@
-/** Write your CSS in here **/
+body {
+    background-color: 'tomato';
+    background-image: url("./images/cabeza-jirafa.jpg");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+h2 {
+    text-align: center;
+    color: violet;
+    
+}
