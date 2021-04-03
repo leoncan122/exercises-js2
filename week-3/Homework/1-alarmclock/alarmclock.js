@@ -1,27 +1,27 @@
+let id = -1
 function setAlarm() {
-  const set = document.getElementById('set');
+  clearInterval(id)
   
-  set.addEventListener('click', (event) => {
-    event.preventDefault();
-    let seconds = document.getElementById('alarmSet').value;
+  const set = document.getElementById('set');
+  const stop = document.getElementsById('')
+  
+  let seconds = document.getElementById('alarmSet').value;
 
-    let timeValue = document.getElementById('timeRemaining')
+  let timeValue = document.getElementById('timeRemaining')
+  let index = seconds
 
-    let index = seconds
-
-    let id = setInterval(function() {
-      if (index === 0 ){
+  id = setInterval(function() {
+    if (index === 0 ){
         playAlarm();
         clearInterval(id);
-      }
-      else {
+    }
+    else {
         index -= 1;
         timeValue.innerHTML = `Time Remaining: 00:${index}`;
       }
       
     },1000)
     
-  })
 }
 
 // DO NOT EDIT BELOW HERE
