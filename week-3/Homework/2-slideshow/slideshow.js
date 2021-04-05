@@ -21,7 +21,7 @@ startBtn.addEventListener('click', () => {
     clearInterval(interval)
     interval = setInterval(() => {
         updateImageForward()
-    }, 1000)
+    }, 4000)
     
 })
 
@@ -36,7 +36,7 @@ backwardBtn.addEventListener('click', () => {
     clearInterval(interval)
     interval = setInterval (() => {
         updateImageBack ()
-    }, 1000)
+    }, 4000)
 } )
 
 backBtn.addEventListener('click', () => {
