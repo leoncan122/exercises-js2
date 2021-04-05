@@ -1,0 +1,4 @@
+por que retorna (linea 35), la misma respuesta antes valores numericos o caracteres?
+
+
+

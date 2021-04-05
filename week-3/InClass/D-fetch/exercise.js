@@ -31,15 +31,23 @@ save.addEventListener('click', (event) => {
         const h3 = document.createElement('h3');
         body.appendChild(h3);
     //5. Hecho!
-        if (lat.value.length == 0 && long.value.length == 0) {
-            h3.innerText = 'complete el formulario'
-        }
-        if (typeof lat.value != 'number' && typeof long.value != 'number') {
-            h3.innerText = 'Los valores deben ser numericos, gracias :)'
-        }
-        else {
-        setTimeout(() => {h3.innerText = data.main.temp}, 2000)
-        }
-    })
+         
+        setTimeout(() => {
+        
+            if (lat.value.length == 0 && long.value.length == 0) {
+                h3.innerText = 'complete el formulario'
+            }
+            else if (typeof lat.value == 'string' && typeof long.value == 'string') {
 
+                h3.innerText = 'Los valores deben ser numericos, gracias :)'
+            }
+            else if (typeof lat.value == 'number' && typeof long.value == 'number') {
+
+                h3.innerText = data.main.temp
+            }
+        //    else {
+        //     h3.innerText = data.main.temp
+        //    }
+        }, 500)
+    })
 })
